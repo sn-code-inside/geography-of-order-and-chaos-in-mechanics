@@ -1,0 +1,22 @@
+               ********************************************************
+               ****  To compile POINCARE (and the other programs)  ****
+               ********************************************************
+- Open Matlab in PhaseSpaceGeography
+- Add to path (right-clicking on):
+     "AddedODEsolver" with subfolders
+     "Util"  with subfolders
+     "Portraits"              
+     "AppDesigner/POINCARE/Master"  with subfolders
+- Go to "AppDesigner/POINCARE/Master".
+- If exists open "Compile_Win.prj" or "Compile_Linux.prj", if not create it with: "Apps/Application compiler".
+- Add "Poincare_source.mlapp" in "Add main file": automatic popup  after a few seconds (of some) of the required files.
+  In case, manually add the missing ones.
+- In Windows uncheck: "Do not display the Windows Command ...".
+- In case complete the rest of the window.
+- Save as "Compile_Win.prj" or "Compile_Linux.prj".
+- In case change the folders in "Settings" and save again.
+- Click on "Package": the folder "Compiled" is created;
+  it contains the executables "Poincare.exe" (for Windows)
+  or "Poincare" and "run_Poincare.sh" (for Linux): copy in "Master"
+  and in all the "SlaveXX".
+***************************************************************************

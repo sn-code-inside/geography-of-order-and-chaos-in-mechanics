@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Worksheet><Version major="6" minor="0"/><View-Properties><Hide name="Group Range"/><Zoom percentage="100"/></View-Properties><Styles><Layout alignment="centred" name="Author" spaceabove="8.0" spacebelow="8.0"/><Layout alignment="left" linebreak="newline" name="Text Output"/><Layout name="Normal"/><Layout alignment="centred" name="Title" spaceabove="12.0" spacebelow="12.0"/><Font background="[0,0,0]" bold="true" executable="true" family="Monospaced" foreground="[255,0,0]" name="Maple Input"/><Font background="[0,0,0]" bold="true" name="_cstyle259" size="14"/><Font background="[0,0,0]" bold="true" name="_cstyle258" size="14"/><Font background="[0,0,0]" bold="true" name="_cstyle257" size="14"/><Font background="[0,0,0]" bold="true" name="_cstyle256" size="14"/><Font background="[0,0,0]" bold="true" name="ParagraphStyle1"/><Font background="[0,0,0]" family="Times New Roman" foreground="[0,0,0]" name="Output Labels" size="8"/><Font background="[0,0,0]" bold="true" name="Title" size="18" underline="true"/><Font background="[0,0,0]" name="Normal"/><Font background="[0,0,0]" name="_cstyle266" size="14"/><Font background="[0,0,0]" name="_cstyle265" size="14"/><Font background="[0,0,0]" name="_cstyle264" size="14"/><Font background="[0,0,0]" name="_cstyle263" size="18"/><Font background="[0,0,0]" bold="true" name="_cstyle262" size="14"/><Font background="[0,0,0]" bold="true" name="_cstyle261" size="14"/><Font background="[0,0,0]" bold="true" name="_cstyle260" size="14"/></Styles><Group><Input><Text-field layout="Title" style="Title"><Font family="Times New Roman">The Euler Problem of the two Fixed Centers</Font></Text-field><Text-field layout="Author" style="_cstyle263"><Font family="Times New Roman">S. Codegoni and B. Cordani</Font></Text-field><Text-field layout="Author" style="_cstyle264"><Font family="Times New Roman">Dip. Matematica - via Saldini 50</Font></Text-field><Text-field layout="Author" style="_cstyle265"><Font family="Times New Roman">20133 - Milano (Italy)</Font></Text-field><Text-field layout="Author" style="_cstyle266"><Font family="Times New Roman">Bruno.Cordani@mat.unimi.it</Font></Text-field><Text-field layout="Text Output" style="Output Labels"/><Text-field layout="Normal" prompt="&gt; " style="Maple Input">restart:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">The Euler problem consists in finding the motion of a particle in a plane subject to the gravitational attraction of two fixed masses: the primary, with mass = 1 and lying in the origin of the Cartesian coordinates, and the secondary, with mass = m and lying in the point (0,2). We use the method of the separation of variables in the Hamilton-Jacobi equation written in elliptic-hyperbolic coordinates.  The problem is so reduced to the quadratures, i.e., to performing some integrals. In the present case, the involved integrals are the elliptic ones of the first kind, and the central question is to reduce them to the canonical form of Legendre. </Font></Text-field><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">First of all we must define the initial position of the moving particle giving, in Cartesian coordinates, its position x and y, its initial velocity v[X] and v[Y], the value, between 0 and 1, of the second mass m  (the limit values are allowed: for m = 0 one obtains the limit case of the Kepler problem). For a better graphical result the parameter n (number of points) may be increased. The evolutive parameter tau varies in (0,delta): increasing delta more revolutions are calculated. Be aware of the fact that with some initial conditions (for example y = 1) the program reports error, since the limit cases of multiple roots in the integrand can not be treated: notice however that the integrals involved in this limiting cases are elementary. When the total energy H is greater than zero, the orbits are not periodic and the parameter delta must be choosen not too great: proceed by trials. Sometimes the orbit may "rebound" on the y-axis: to fix the problem increase n. The parameter Digits increases the digit number of the calculation.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">x:=1 :y:=0  :v[X]:=0  :v[Y]:=0.5  :m:=0.6  :n:=50 :delta:=10  :Digits:=10:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">With the following one calculates the initial values of the elliptic coordinates and relative canonical momenta.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">xi1:=evalf(1/2*(sqrt(x^2+y^2)+sqrt(x^2+(y-2)^2))):
+eta1:=evalf(1/2*(sqrt(x^2+y^2)-sqrt(x^2+(y-2)^2))):
+v[XI]:=evalf(1/2*((x*v[X]+y*v[Y])/(sqrt(x^2+y^2))+(x*v[X]+(y-2)*v[Y])/sqrt(x^2+(y-2)^2))):
+v[ETA]:=evalf(1/2*((x*v[X]+y*v[Y])/(sqrt(x^2+y^2))-(x*v[X]+(y-2)*v[Y])/sqrt(x^2+(y-2)^2))):
+p[XI]:=(xi1^2-eta1^2)/(xi1^2-1)*v[XI]:
+p[ETA]:=(xi1^2-eta1^2)/(1-eta1^2)*v[ETA]:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Let us calculate the two first integrals of the motion H and alpha. </Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">H:=evalf(1/2*1/(xi1^2-eta1^2)*((xi1^2-1)*p[XI]^2+(1-eta1^2)*p[ETA]^2)+(eta1*(1-m)-xi1*(1+m))/(xi1^2-eta1^2)):
+alpha1:=evalf(eta1^2*H+1/2*(1-eta1^2)*p[ETA]^2+eta1*(1-m)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Let us consider the polynomial of the fourth degree in xi. Its roots are</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">xi[1]:=-1:xi[2]:=1:xi[3]:=evalf((-(1+m)+sqrt((1+m)^2+4*H*alpha1))/(2*H)):xi[4]:=evalf((-(1+m)-sqrt((1+m)^2+4*H*alpha1))/(2*H)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">To reduce it to the Legendre normal form the roots must not interlace. On the contrary case we must consider the two polynomials S1 and S2 obtained as products of the bynomials with non interlacing roots.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">INTER1:=sort([xi[1],xi[2],xi[3],xi[4]]):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">S1:=expand((xi-INTER1[1])*(xi-INTER1[2])):
+S2:=expand(H*(xi-INTER1[3])*(xi-INTER1[4])):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Let us consider the coefficients of these polynomials and calculate the following constants, which are necessary for the transformations reducing the elliptic integral (for details see section 1.5 of the Codegoni thesis).</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Normal"><Font style="Maple Input">a1:=coeff(S1,xi,2): b1:=coeff(S1,xi,1)/2: c1:=coeff(S1,xi,0):
+a2:=coeff(S2,xi,2): b2:=coeff(S2,xi,1)/2: c2:=coeff(S2,xi,0):</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">L1:=(-(a1*c2+a2*c1-2*b1*b2)+sqrt((a1*c2+a2*c1-2*b1*b2)^2-4*(b2^2-a2*c2)*(b1^2-a1*c1)))/(2*(b2^2-a2*c2)):
+L2:=(-(a1*c2+a2*c1-2*b1*b2)-sqrt((a1*c2+a2*c1-2*b1*b2)^2-4*(b2^2-a2*c2)*(b1^2-a1*c1)))/(2*(b2^2-a2*c2)):
+alpha:=(L1*b2-b1)/(a1-L1*a2):
+beta:=(L2*b2-b1)/(a1-L2*a2):
+A1:=L1*(L1*a2-a1)/(L1-L2)+a1-L1*a2:
+B1:=L1*(a1-L2*a2)/(L1-L2):
+A2:=(L1*a2-a1)/(L1-L2):
+B2:=(a1-L2*a2)/(L1-L2):
+a:=sqrt(abs(B1/A1)): b:=sqrt(abs(B2/A2)):
+</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">We consider the following six cases, since the reducing transformations depend on the coefficients of the polynomials, thus on the sign combinations of the now calculated constants A1, B1, A2, B2. For each of the six cases we obtain the elliptic coordinate xi as a function of tau.</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle256">a) </Font><Font style="Maple Input">if evalf(A1)&gt;0 and evalf(B1)&gt;0 and evalf(A2)&gt;0 and evalf(B2)&gt;0 then
+     if evalf(a)&lt;evalf(b) then
+         a_:=a: b_:=b 
+       else
+         a_:=b: b_:=a:
+      fi:
+     k:=sqrt((b_^2-a_^2)/(b_^2)):
+     u:=-(alpha-beta)*sqrt(A1*A2)*b_*tau+z1:
+     xi:=(beta*b_*JacobiCN(u,k)/JacobiSN(u,k)-alpha)/(b_*JacobiCN(u,k)/ JacobiSN(u,k)-1):
+     #plot(xi,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle257">b)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A1)&gt;0 and evalf(B1)&lt;0 and evalf(A2)&gt;0 and evalf(B2)&gt;0 then
+    a_:=a: b_:=b: 
+    k:=sqrt((b_^2)/(a_^2+b_^2)):
+    u:=(alpha-beta)*sqrt(A1*A2)*sqrt(a_^2+b_^2)*tau+z1:
+    xi:=(beta*a_*1/JacobiCN(u,k)-alpha)/(a_/JacobiCN(u,k)-1):                      #plot(xi,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle258">c)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A1)&lt;0 and evalf(B1)&gt;0 and evalf(A2)&gt;0 and evalf(B2)&gt;0 then
+     a_:=a: b_:=b: 
+     k:=sqrt(a_^2/(a_^2+b_^2)):
+     u:=-(alpha-beta)*sqrt(abs(A1)*A2)*sqrt(a_^2+b_^2)*tau+z1:
+     xi:=(beta*a_*JacobiCN(u,k)-alpha)/(a_*JacobiCN(u,k)-1):
+     #plot(xi,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle259">d)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A1)&gt;0 and evalf(B1)&lt;0 and evalf(A2)&gt;0 and evalf(B2)&lt;0 then
+     if evalf(a)&lt;evalf(b) then
+         a_:=a: b_:=b 
+       else
+         a_:=b: b_:=a:
+      fi:
+     k:=sqrt((a_^2)/(b_^2)):
+     u:=-(alpha-beta)*sqrt(A1*A2)*b_*tau+z1:
+     xi:=((beta*b_)/JacobiSN(u,k)-alpha)/(b_/JacobiSN(u,k)-1):
+     #plot(xi,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle260">e)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A1)&gt;0 and evalf(B1)&lt;0 and evalf(A2)&lt;0 and evalf(B2)&gt;0 then
+     a_:=a: b_:=b: 
+     k:=sqrt((b_^2-a_^2)/(b_^2)):
+     u:=-(alpha-beta)*sqrt(A1*abs(A2))*b_*tau+z1:
+xi:=(beta*sqrt(b_^2-(b_^2-a_^2)*(JacobiSN(u,k))^2)-alpha)/(sqrt(b_^2-(b_^2-a_^2)*(JacobiSN(u,k))^2)-1):
+     #plot(xi,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle261">f)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A1)&lt;0 and evalf(B1)&gt;0 and evalf(A2)&lt;0 and evalf(B2)&gt;0 then
+     if evalf(a)&lt;evalf(b) then
+         a_:=a: b_:=b 
+       else
+         a_:=b: b_:=a:
+      fi:
+     k:=sqrt((a_^2)/(b_^2)):
+     u:=(alpha-beta)*sqrt(abs(A1*A2))*b_*tau+z1:
+     xi:=(beta*a_*JacobiSN(u,k)-alpha)/(a_*JacobiSN(u,k)-1):
+     #plot(xi,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Analogously for the polynomial in eta.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">eta[1]:=-1:eta[2]:=1:eta[3]:=evalf((-(1-m)+sqrt((1-m)^2+4*H*alpha1))/(2*H)):eta[4]:=evalf((-(1-m)-sqrt((1-m)^2+4*H*alpha1))/(2*H)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Since in this case the polynomial may have complex roots, let us control their nature.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">reale:=is(eta[3],real):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">If the roots are real, they must not interlace. Let us control that and in case consider the two polynomials obtained as products of the bynomials with non interlacing roots</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">if reale=true then
+  INTER2:=sort([eta[1],eta[2],eta[3],eta[4]]):
+   if eta[3]&gt;-1 and eta[4]&lt;1 and eta1&gt;eta[4] then
+      p1:=expand((eta-INTER2[1])*(eta-INTER2[2])):
+      p2:=expand(H*(eta-INTER2[3])*(eta-INTER2[4])):
+   else
+      p1:=expand(H*(eta-INTER2[1])*(eta-INTER2[2])):
+      p2:=expand((eta-INTER2[3])*(eta-INTER2[4])):
+   fi:
+else
+  p1:=expand(H*(eta-eta[1])*(eta-eta[2])):
+  p2:=expand((eta-eta[3])*(eta-eta[4])):
+fi:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">p1:p2:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">As before, let us consider the coefficients of these polynomials and calculate the constants for the reducing transformation </Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Normal"><Font style="Maple Input">a11:=Re(coeff(p1,eta,2)): b11:=Re(coeff(p1,eta,1)/2): c11:=Re(coeff(p1,eta,0)):
+a22:=Re(coeff(p2,eta,2)): b22:=Re(coeff(p2,eta,1)/2): c22:=Re(coeff(p2,eta,0)):</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">if evalf(b11)=0 and evalf(b22)=0 then
+   A11:=a11:B11:=c11:A22:=a22:B22:=c22:alpha2:=0
+  else
+L11:=(-(a11*c22+a22*c11-2*b11*b22)+sqrt((a11*c22+a22*c11-2*b11*b22)^2-4*(b22^2-a22*c22)*(b11^2-a11*c11)))/(2*(b22^2-a22*c22)):
+L22:=(-(a11*c22+a22*c11-2*b11*b22)-sqrt((a11*c22+a22*c11-2*b11*b22)^2-4*(b22^2-a22*c22)*(b11^2-a11*c11)))/(2*(b22^2-a22*c22)):
+   alpha2:=(L11*b22-b11)/(a11-L11*a22):  
+   beta2:=(L22*b22-b11)/(a11-L22*a22):
+   A11:=L11*(L11*a22-a11)/(L11-L22)+a11-L11*a22:
+   B11:=L11*(a11-L22*a22)/(L11-L22):
+   A22:=(L11*a22-a11)/(L11-L22):
+   B22:=(a11-L22*a22)/(L11-L22):
+fi:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">a0:=sqrt(abs(B11/A11)): b0:=sqrt(abs(B22/A22)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">As before we have six cases, but with two subcases. Afterwards we obtain eta as a function of tau.</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="ParagraphStyle1"><Font family="Times New Roman" style="_cstyle256">a) </Font><Font style="Maple Input">if evalf(A11)&gt;0 and evalf(B11)&gt;0 and evalf(A22)&gt;0 and evalf(B22)&gt;0 then
+     if evalf(a0)&lt;evalf(b0) then
+         a0_:=a0: b0_:=b0 
+       else
+         a0_:=b0: b0_:=a0:
+      fi:
+     kappa:=sqrt((b0_^2-a0_^2)/(b0_^2)):
+     nu:=(alpha2-beta2)*sqrt(A11*A22)*b0_*tau+z2:
+eta:=(beta2*b0_*JacobiCN(nu,kappa)/JacobiSN(nu,kappa)-alpha2)/(b0_*JacobiCN(nu,kappa)/JacobiSN(nu,kappa)-1):
+     #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle257">b)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A11)&gt;0 and evalf(B11)&lt;0 and evalf(A22)&gt;0 and evalf(B22)&gt;0 then
+    a0_:=a0: b0_:=b0: 
+    kappa:=sqrt(b0_^2/(a0_^2+b0_^2)):
+    nu:=-(alpha2-beta2)*sqrt(A11*A22)*sqrt(a0_^2+b0_^2)*tau+z2:
+   eta:=((beta2*a0_)/JacobiCN(nu,kappa)-alpha2)/(a0_/JacobiCN(nu,kappa)-1):
+    #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle258">c1)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A11)&lt;0 and evalf(B11)&gt;0 and evalf(A22)&gt;0 and evalf(B22)&gt;0 and evalf(alpha2)&lt;&gt;0 then
+     a0_:=a0: b0_:=b0: 
+     kappa:=sqrt(a0_^2/(a0_^2+b0_^2)):
+     nu:=(alpha2-beta2)*sqrt(abs(A11)*A22)*sqrt(a0_^2+b0_^2)*tau+z2:
+     eta:=(beta2*a0_*JacobiCN(nu,kappa)-alpha2)/(a0_*JacobiCN(nu,kappa)-1):
+     #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle262">c2)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A11)&lt;0 and evalf(B11)&gt;0 and evalf(A22)&gt;0 and evalf(B22)&gt;0 and evalf(alpha2)=0 then
+     a0_:=a0: b0_:=b0: 
+     kappa:=sqrt(a0_^2/(a0_^2+b0_^2)):
+     nu:=sqrt(abs(A11)*A22)*sqrt(a0_^2+b0_^2)*tau+z2:
+     eta:=a0_*JacobiCN(nu,kappa):
+     #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle259">d)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A11)&gt;0 and evalf(B11)&lt;0 and evalf(A22)&gt;0 and evalf(B22)&lt;0 then
+     if evalf(a0)&lt;evalf(b0) then
+         a0_:=a0: b0_:=b0 
+       else
+         a0_:=b0: b0_:=a0:
+      fi:
+     kappa:=sqrt((a0_^2)/(b0_^2)):
+     nu:=(alpha2-beta2)*sqrt(A11*A22)*b0_*tau+z2:
+   eta:=((beta2*b0_)/JacobiSN(nu,kappa)-alpha2)/(b0_/JacobiSN(nu,kappa)-1):
+     #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman" style="_cstyle260">e1)</Font><Font family="Times New Roman"> </Font><Font style="Maple Input">if evalf(A11)&gt;0 and evalf(B11)&lt;0 and evalf(A22)&lt;0 and evalf(B22)&gt;0 and H&lt;0 then
+     a0_:=a0: b0_:=b0: 
+     kappa:=sqrt((b0_^2-a0_^2)/(b0_^2)):
+     nu:=(alpha2-beta2)*sqrt(A11*abs(A22))*b0_*tau+z2:
+eta:=(beta2*sqrt((b0_^2)-(b0_^2-a0_^2)*(JacobiSN(nu,kappa))^2)-alpha2)/(sqrt((b0_^2)-(b0_^2-a0_^2)*(JacobiSN(nu,kappa))^2)-1):
+     #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="ParagraphStyle1"><Font family="Times New Roman" style="_cstyle256">e2)</Font><Font style="Maple Input">if evalf(A11)&gt;0 and evalf(B11)&lt;0 and evalf(A22)&lt;0 and evalf(B22)&gt;0 and H&gt;0 then
+     a0_:=a0: b0_:=b0: 
+     kappa:=sqrt((b0_^2-a0_^2)/(b0_^2)):
+     nu:=(alpha2-beta2)*sqrt(A11*abs(A22))*b0_*tau+z2:
+eta:=(-beta2*sqrt((b0_^2)-(b0_^2-a0_^2)*(JacobiSN(nu,kappa))^2)-alpha2)/(-sqrt((b0_^2)-(b0_^2-a0_^2)*(JacobiSN(nu,kappa))^2)-1):
+     #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="ParagraphStyle1"><Font family="Times New Roman" style="_cstyle256">f)</Font><Font style="Maple Input">if evalf(A11)&lt;0 and evalf(B11)&gt;0 and evalf(A22)&lt;0 and evalf(B22)&gt;0 then
+     if evalf(a0)&lt;evalf(b0) then
+         a0_:=a0: b0_:=b0 
+       else
+         a0_:=b0: b0_:=a0:
+      fi:
+     kappa:=sqrt((a0_^2)/(b0_^2)):
+     nu:=-(alpha2-beta2)*sqrt(abs(A11*A22))*b0_*tau+z2:
+     eta:=(beta2*a0_*JacobiSN(nu,kappa)-alpha2)/(a0_*JacobiSN(nu,kappa)-1):
+     #plot(eta,tau=-10..10):
+   fi:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Let us calculate the two integration constants z1 and z2, taking into account the initial conditions at tau=0.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">xiA:=subs(tau=0,xi):
+z11:=solve(xi1=xiA,z1):
+etaA:=subs(tau=0,eta):
+z22:=solve(eta1=etaA,z2):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">xib:=subs(z1=z11,xi):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">dxib:=diff(xib,tau):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">dxib0:=evalf(subs(tau=0,dxib)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">The sign of this must be equal to that of the initial value of v[XI].</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">segno1:=sign(v[XI]*dxib0):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">xi:=subs(tau=segno1*tau,xib):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Analogously for eta.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">etab:=subs(z2=z22,eta):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">detab:=diff(etab,tau):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">detab0:=evalf(subs(tau=0,detab)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">The sign of this must be equal to that of the initial value of v[ETA].</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">segno2:=sign(v[ETA]*detab0):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">eta:=subs(tau=segno2*tau,etab):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Lastly, taking into account the definition of the elliptic coordinates let us calculate the Cartesian coordinates x and y as functions of tau.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">if x&gt;0 then x:=tau-&gt;sqrt((xi^2-1)*(1-eta^2)):else x:=tau-&gt;-sqrt((xi^2-1)*(1-eta^2)):fi:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Normal"><Font style="Maple Input">x(tau):</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">y:=tau-&gt;xi*eta+1:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Normal"><Font style="Maple Input">y(tau):</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Now we must display the orbit avoiding (almost always) the "rebound" due to the definition of x with a square root. The following writes the list of the points to drawn.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">dis:=plot([x(tau),y(tau),tau=0..delta],numpoints=n):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">The following removes all the "words" and leaves the list of pairs of numbers.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">Q:=op([1,1],dis):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">With the following, only the first coordinates of the list (i.e. the x's) are considered.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">P:=map(x-&gt;x[1],Q):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">nops(P):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Let us write also the second coordinates of the list Q.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">W:=map(x-&gt;x[2],Q):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">nops(W):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Let us write the list of the distances of the points from the origin and find the minimum value. </Font><Font style="Maple Input">M:=[seq(sqrt((P[h])^2+(W[h])^2),h=1..nops(W))]:</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">min(op(M)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Let us change the signs to avoid the "rebound".</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">for i from 1 to (nops(W)-2)  do if  abs(P[i])&gt;abs(P[i+1]) and abs(P[i+1])&lt;abs(P[i+2]) and (sqrt((P[i+1])^2+(W[i+1])^2))&gt;(min(op(M))) then R:=P[i+2..nops(W)]:S:=map(x-&gt;-x,R):P:=[op(P[1..i+1]),op(S)]:fi: od:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">P:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">nops(P):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Reconstruct the list.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">for j from 1 to nops(W) do A[j]:=[P[j],W[j]] od:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">fine:=[seq(A[k],k=1..nops(W))]:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">curva:=PLOT(CURVES(fine,COLOUR(RGB,1.0,0,0)),AXESLABELS(``, ``),VIEW(DEFAULT,DEFAULT),SCALING(CONSTRAINED)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" style="Normal"><Font family="Times New Roman">Plot two small disks in the two points where are the two attractive masses.</Font></Text-field><Text-field layout="Normal" prompt="&gt; " style="Maple Input">with(plottools):
+d1 := disk([0,0], 0.06, color=black):
+d2 := disk([0,2], 0.06*root(m,3), color=black):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Normal"><Font style="Maple Input">plots[display]({curva,d1,d2});</Font></Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">
+</Text-field></Input></Group><Text-field/><Text-field/></Worksheet>

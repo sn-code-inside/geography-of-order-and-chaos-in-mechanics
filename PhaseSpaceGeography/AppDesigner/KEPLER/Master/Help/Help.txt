@@ -1,0 +1,306 @@
+ 
+                          ********************************************
+                          * INTRODUCTION (for the impatient) *
+                          ********************************************
+
+The KEPLER program, written in MATLAB language, calculates numerically and displays the
+solutions of the Hamiltonian system describing the perturbed Kepler problem. The obvious
+approach consists in a straightforward numerical integration of the six Hamilton equations
+with the ODE solvers coming with MATLAB. This "standard method" is implemented in KEPLER
+just for comparison's sake and is useful, in particular, when the motion is unbounded.
+Indeed, this method suffers of two drawbacks.
+
+(i) Approaching the singularity in the origin, the integration step should be shortened
+to maintain a good precision but the integration method is not always equipped with an
+adaptive step mechanism, or this mechanism is efficient enough.
+
+(ii) The integration errors affect also the unperturbed solution, which is instead
+exactly (i.e., analytically) known.
+
+Thus, more sophisticated methods are utilized, which exploit the group--geometrical
+structure of the unperturbed Kepler problem. KEPLER offers two regularization methods.
+
+(i) The perturbative method. With regard to the first point above, the unperturbed
+motion is described by a uniform rotation of two quadrivectors subjected to two
+constraints: they are orthogonal and have the same norm. The motion, which is identical
+to the geodesical motion on a 3-dimensional sphere, turns out to be regularized and the
+solution may pass unharmed in the neighbourhood of the singularity. Moreover, the two
+vectors constitute a global coordinate system in phase space. The time is replaced by a
+so-called "false time", which tends to the eccentric anomaly when the perturbation is
+vanishing. For the second point, the method of the variation of the constants is
+utilized, exploiting our knowledge of the unperturbed solution. In other words, only
+the small difference between perturbed and unperturbed solution is calculated,
+minimizing the numerical errors.
+
+(ii) The non-perturbative method. Alternatively, the Kustaanheimo-Stiefel
+transformation regularizes the motion, which is reduced to that of a 4-dimensional
+oscillator subject to a constraint. When the perturbation is not very small, it may be
+convenient to integrate directly the regularized Hamilton equations of the perturbed
+problem with an integration methods which solves exactly the oscillator problem.
+
+The price to pay, in using the above methods, is that the initial conditions must be
+normalized. Thus KEPLER, in a transparent manner, rescales the initial conditions,
+performs the numerical integration and, finally, restores the initial situation. For
+that, the perturbation Hamiltonian must be a linear combination of homogeneous terms in
+the components of position and velocity vectors, with homogeneity degrees, however,
+completely arbitrary. The coefficients of the linear combination are the suitably
+rescaled values of epsilon, the perturbative parameters.
+
+The use of the program should be, as we hope, easy and intuitive, at least regarding
+the more elementary functionalities. Indeed, at every stage only the buttons which is
+sensible to push are enabled, so that the user is almost guided along the right
+sequence of clicking. The command statements of KEPLER are gathered in four windows,
+which one selects in the popupmenu in the left-top corner. The first (default) window
+is devoted to the study of a single orbit, and is composed by seven panels. Reading it
+like a printed page, i.e., from left to right and from top to bottom, we find what
+follows.
+
+In the first panel, entitled "Perturbation Hamiltonian", the user can combine various
+Hamiltonians chosen from a menu. The list may be easily enlarged writing a file similar
+to those found in the subdirectory "H_perturbation".
+
+In the second panel "Initial conditions", the user can give the relative information,
+fixing the initial position and velocity or the Keplerian parameters: once changed one
+of the subpanels, the other must be updated before to continue.
+
+The third panel "ODE solver" allows to choose the integration method. Some methods
+integrate with an adaptive, i.e., variable step; the output, however, can be obtained
+at regularly spaced points by fixing the "Output Step" value: this is necessary in the
+frequency analysis performed in the last panel.
+
+The fourth panel "Revolution's number" allows to choose the number of revolutions in
+the integration process and/or in the display: this last is useful in case of long
+integration, when plotting the whole solution would generate an overloaded figure.
+
+The fifth panel "Regularization method" is the core of the program. The button
+"Integrate" performs the integration of the chosen Hamiltonian with the parameter
+values fixed in the previous panels. Once the procedure is complete, several buttons
+are enabled, allowing to display the dynamical evolution of many variables such as, for
+example, the position and velocity vectors or the Kepler parameters. Moreover, the user
+may write and display customized functions.
+
+The sixth panel "Standard method" integrates directly the six Hamilton equations,
+without regularization procedure. This is useful, in particular, when one must treat
+unbounded cases.
+
+Lastly, the seventh panel "Action--Angle variables and (Time--)Frequency analysis on
+KAM tori" allows the analysis of how change the fundamental frequencies of a quasi-
+integrable motion, detecting so the transition from order to chaos. The supplied
+methods are the well known Fast Fourier Transform (FFT) and its local refinement, the
+Frequency Modified Fourier Transform (FMFT); moreover, the Wavelet Transform (WT) allow
+to study how changes the instantaneous frequency.
+
+********* Action-Angle variables and Time-Frequency Analysis on KAM Tori ************
+The panel "Action-Angle variables and Time-Frequency Analysis on KAM Tori"
+allows to analyse how the fundamental frequencies of
+a quasi-integrable motion change, detecting in this way the transition from
+order to chaos. The two 3-dimensional Pauli vectors, defined in section
+6.1.4 of the book, are the basic tool: they span two spheres and, once
+fixed the energy value, they are in a 1-1 correspondence with elliptic
+orbits, so that a stationary point for these two vectors (say, a relative
+equilibrium point) locates a periodic elliptic orbit in the physical space.
+Remark that a periodic orbit of the perturbed Kepler problem is in general a
+slightly deformed ellipse; it is described by a periodic motion of the Pauli
+vectors, covering a closed curve with the same frequency of the physical
+motion. The "mean diameter" of the closed curve is in general very small and
+gives an idea of how much the physical trajectory differs from an ellipses. We
+will still call this small deformed curve "relative equilibrium point".
+Five types of action--angle variables can be calculated and plotted.
+1) The classical Delaunay variables are traditionally considered "the" action--angle
+   variables of the Kepler problem. However, because of the complete total degeneration
+   of the problem, in general they are not slightly deformed by a generic small
+   perturbation but completely distorted, and the description by tori is lost.
+2) The rotated Delaunay action-angle variables are defined as in the previous item, but
+   after a rotation moving the relative equilibrium point to the north poles of
+   the two spheres spanned by the Pauli vectors.
+3) The Pauli action-angle variables are defined in subsection 6.1.4.
+4) The rotated Pauli action-angle variables are defined as in the previous item, but
+   after a rotation moving the relative equilibrium point to the north poles of
+   the two spheres spanned by the Pauli vectors.
+5) Action-angle variables defined by the user. Selecting one of the files in the folder
+   "UserFunctions\UserActionAngle", the result is stored on memory and added to the
+   further computations. To clear the memory, click on "Clear Append" in the third
+   or fourth window. 
+The Delaunay and Pauli action-angle variables are well suited for
+perturbations with axial symmetry about the third axis, thus with the relative
+equilibrium point placed at the two north poles. The rotated Delaunay and Pauli
+action-angle variables instead are used for any perturbation, when the relative
+equilibrium point is placed in generic position.
+Let us examine how to use the seventh panel. When the integration is
+completed, the buttons in the panel are enabled. By clicking on
+"Pauli vectors", the dynamical evolution of these vectors is plotted and the
+subpanel entitled "Normalized Pauli vectors of equilibrium
+point" shows the mean value s1, s2, s3, d1, d2, d3 of the 3+3 components of the vectors,
+along with the energy value: the idea is that the Pauli vectors rotate approximately
+about their equilibrium point. If the "Enable Update button" is checked, by clicking on
+"Pauli vectors" the values of s1, s2, s3, d1, d2, d3 are updated, then, clicking
+on "Update initial conditions", the latter are synchronized with those
+corresponding to the mean values of the Pauli vectors and to the energy just
+now computed. Redoing the integration,
+the Pauli vectors should now rotate closer to their equilibrium point so that,
+by repeating the procedure three or four times, one should reach the very
+neighborhood of a physical periodic orbit.
+
+To check how close one is to the physical periodic orbit, inspect the plot of
+space and momentum trajectories or, more effectively, look at the motion of
+the "Rotated Pauli vectors". We recall that for periodic orbits the, practically
+unattainable, optimum would be to get Pauli vectors describing two very small
+closed curves. To this end, it is convenient to tune the initial
+conditions - mainly eccentricity and inclination - quite delicately, 
+then "Update Energy and Pauli vectors" and successively proceed to a new
+integration. Note, however, that it is not mandatory to find exactly the
+periodic orbit but, for what follows, only the two centers of the motion of
+the Pauli vectors are relevant.
+
+Once these two centers are found, it is convenient to freeze the values of the
+Pauli vectors by unchecking the "Enable Update button'". Then, you may
+explore the neighborhood of the physical periodic orbit by slightly changing
+the initial conditions and integrating again. Clicking on "Rotated Pauli vectors",
+the projections of the rotated Pauli vectors on the plane 1-2 will cover the
+neighborhood of the origin, while the other blue buttons will show the evolution
+of the Action-Angle variables. If the periodic orbit has been satisfactorily
+determined, the related rotated-normalized variables will take on an approximately unitary value.
+
+At this point, the user can analyze the spectrum of the three action variables
+with three methods. The frequency of a circular unperturbed Keplerian orbit
+with radius = 1 is taken as unity.
+1) The Fast Fourier Transform (FFT) gives an overall image of the whole
+   spectrum but with the shortcoming that for a better resolution one should
+   lengthen excessively the integration interval, calculating in this manner only
+   an averaged frequency.
+2) The Frequency Modified Fourier Transform (FMFT) allows a much more
+   precise calculation of the frequencies in a narrow interval chosen by the
+   user, which has at his disposal three methods of increasing precision: see at
+   the end of subsection 5.3.2 of the book. The frequencies are ordered starting
+   from the largest amplitude and are displayed in decreasing order. The user can
+   also choose the number of frequencies to be displayed and their range: take
+   into account that if one fixes a large number of frequencies and a narrow
+   range, the time needed for the computation may grow excessively, which
+   sometimes requires to kill the FMFT process directly from the operating system.
+3) The Wavelet Transform (WT) allows to display the time evolution of the
+   instantaneous frequency: see subsection 5.3.3. The user can choose
+   the range of the frequency and the variance: it is advisable to take the value
+   of the variance about 30 times that of the frequency.
+If all the calculated frequencies turn out to be a linear combination with
+integer coefficients of three fundamental frequencies, the spectrum is said to
+be "regular" and the motion is "ordered", taking place on an invariant KAM torus.
+Selecting the corresponding radiobutton, the FFT, FMFT or WT can be applied to
+the four systems of action-angle variables of Delaunay and Pauli. Moreover,
+the user may write and analyze custom functions.
+*************************************************************************************
+
+The other three windows are devoted to the study of the global properties of the whole
+phase space. The second window contains the panel "Global analysis: Poincaré section"
+for the problems with 2 degree of freedom. The third and fourth window contain the
+panels "Global analysis: Rotated Delaunay" and "Global analysis: Rotated Pauli" to
+study generic problems with Delaunay or Pauli action-angle variables, respectively. The
+numerical tool is the Frequency Modulation Indicator (FMI). In order to obtain good
+results, the computations invoked in the third and fourth window require very long
+time, which can be shortened if the computer is a multicore model.
+
+************************ Global analysis: Poincaré section ************************
+The panel "Poincaré section and frequency map (plane system or with axial symmetry)"
+is devoted to the study of the global structure of the whole
+phase space, or of a portion of it, for systems with two degrees of freedom:
+planar systems or with axial symmetry. In the latter case the third component
+G3 of the angular momentum is a first integral, whose value is fixed by
+the user. The offered tools are two.
+
+1) The classical Poincaré map in the plane "angular momentun-argument of pericenter"
+   with fixed energy chosen by the user, which can fix, moreover, the initial value of the
+   argument of the pericenter, the min and max value of the angular
+   momentum and the number of sections (= step number + 1). If the check box
+   "Append" is selected, the sections under computation are kept in memory and
+   automatically added to the subsequent outputs. The button "Clear" empties the memory.
+
+2) The frequency analysis computed along a section G3 = constant with
+   fixed energy. An output figure displays the values of the L-frequency and
+   G-frequency as a function of G. The other output figure displays the ratio
+   between the two frequencies: this is useful in detecting
+   the resonances, which reveal themselves as plateaux in correspondence of
+   rational values. The range of displayed values of the two frequencies can be choosen
+   in the two subpanels "L--frequency" and
+   "G-frequency". Choosing the null value for the step number, the max G
+   field is disabled; checking "Frequency map (or single orbit)" and unchecking
+   "Poincaré map", then clicking on "Calculate and plot" forces to jump
+   to the first window (with initial values corresponding to the selected values
+   of min G, G3, Total energy and argument of pericenter, while longitude of ascending
+   node and true anomaly are null by default) and to compute the relative orbit.
+   Afterwards one can perform the numerical frequency or wavelet analysis and compare
+   it with the results of the Poincaré map.
+   
+************************* Global analysis: Rotated Delaunay **********************  
+The panel "Frequency analysis and FMI for rotated and Normalized Delaunay variables"   
+is devoted to the study of the global structure of the whole   
+phase space, or of a portion of it, for generic systems with three degrees of   
+freedom. The surface of constant total energy in the action space is   
+parametrized by G and G3 and covered with a rectangular grid. The   
+button "Calculate . . ." performs the numerical analysis of the frequencies on   
+the points of the grid, then the result is displayed clicking on the three   
+buttons in the subpanel ". . . and plot". In particular, for the button   
+"FMI" (the meaning of the other two is evident) we recall the   
+definition: once computed an orbit, perform several numerical frequency   
+analysis, say N, shifting each time the window of some Delta, and   
+take the largest (= max) and smallest (= min) of the N output values. For a suitable Delta   
+(but the choice is not very critical) and N large enough, the   
+difference between the two values will result proportional to the amplitude   
+of the frequency modulation, which in turn is a spy of the presence of a resonance.   
+N may be chosen in "Step number for FMI". Let us define the Frequency   
+Modulation Indicator (FMI) as   
+                 sigma = log((max - min)/(max + min))   
+Clearly, sigma = - infinity for orbits of KAM type starting   
+sufficiently far away from a resonance of low order, while the high order   
+resonances are practically not detectable in numerical investigations. In the   
+graphical representation one usually chooses a cut-off, i.e., raises all the   
+lower values to, for example, sigma = - 12. Instead, inside a   
+resonance or in its very neighbourhood, sigma will be in   
+general larger, growing with the amplitude of the frequency modulation.   
+Notice, however, that the FMI is very effective in showing where the   
+resonances are, but requires long integration times to give   
+reliable information of what happens inside them; to this end, it is more   
+advantageous to compute the frequency values along suited sections: see below.   
+   
+The frequencies are progressively numbered as 1,2,3. If the 3x3 matrix   
+on the subpanel "Unimodular transformation" is the identity, they coincide   
+with the L-frequency, G-frequency and G3-frequency respectively. But the   
+action-angle variables are defined up to a unimodular transformation,   
+represented by a matrix with integer entries and unit determinant: inside a   
+resonance one can thus define three new angles such that one of them coincides   
+with the resonant angle. We recall that a resonant angle performs librations,   
+i.e., oscillations, instead of rotations. The dynamical evolution of the three   
+new action-angle variables can be viewed clicking on "User function" of the   
+panel "Regularization Method" of the first window, then selecting a file of the   
+type AADelaunayprime_x.m or AAPauliprime_x.m in the UserActionAngle directory.   
+Notice that in the thin stochastic layer surrounding the separatrices between   
+libration and circulation, the point "hesitates", choosing randomly between   
+the two behaviours: this is the source of the chaos.   
+   
+For a more precise local analysis, the user can compute the frequencies along   
+a section G = constant or G3 = constant: to this end, select the null   
+value for the total step number of G or G3, respectively, then click on   
+"Compute . . .". The final output can be viewed with the buttons of the   
+subpanel ". . . and plot". Selecting, instead, the null value for the total   
+step number of G and G3, one jumps to the first window, where   
+the computation of the relative orbit starts.   
+   
+In order to obtain good results, the computations invoked in the third and   
+fourth window require very long times, which can be shortened if the computer   
+is a multicore machine. Indeed, KEPLER is able to parallelize the computations   
+in the following way. If you possess an n-core machine, in an empty folder   
+"Kepler" create a subfolder "Master" and n-1 subfolders   
+"Slave1", "Slave2", . . . , then copy the whole program KEPLER   
+identically in every folder. Start MATLAB then KEPLER from the "Master"   
+folder, set the parameters and click on "File/Save setting now". WITHOUT   
+CLOSING, start a new instance of MATLAB, then KEPLER from a folder   
+"SlaveX": you will notice that all the buttons of the computations are   
+disabled while the new button "Start Slave" appears. Click on this button   
+and KEPLER will wait for the start of the master. Redo for every slave, lastly   
+go back to the master and click on "Calculate . . .". The whole work will be   
+automatically shared among the n cores. The final result is displayed by the master.   
+
+************************* Global analysis: Rotated Pauli **********************
+The window "Frequency map for Rotated and Normalized Pauli variables" is devoted
+to the study of the global structure of the whole phase space, or of a portion of it,
+for generic systems with three degrees of freedom but with the actions S3 and D3 replacing
+G and G3; the conjugate angles are calculated in subsection 6.1.4 of the book.
+The instructions for use are like those in the third window.

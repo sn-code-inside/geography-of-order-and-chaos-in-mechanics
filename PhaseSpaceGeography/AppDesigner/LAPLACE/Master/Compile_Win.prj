@@ -1,0 +1,170 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration build-checksum="296110599" file="C:\PhaseSpaceGeography\AppDesigner\LAPLACE\Master\Compile_Win.prj" location="C:\PhaseSpaceGeography\AppDesigner\LAPLACE\Master" name="Compile_Win" preferred-package-location="C:\PhaseSpaceGeography\AppDesigner\LAPLACE\Master\Compiled\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>Laplace</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>2.0</param.version>
+    <param.authnamewatermark>Bruno Cordani</param.authnamewatermark>
+    <param.email>bruno.cordani@unimi.it</param.email>
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.guid />
+    <param.installpath.string>\Laplace\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}\Compiled\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\Compiled\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\Compiled\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\Compiled</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>true</param.create.log>
+    <param.log.file>Report.log</param.log.file>
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text>Syntax 
+	  -? 
+	 
+ Input Arguments 
+	 -?  print help on how to use the application 
+	 input arguments</param.help.text>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.target.install.notes />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\Laplace_source.mlapp</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\custom.hnb</file>
+      <file>${PROJECT_ROOT}\Help\Help.txt</file>
+      <file>C:\PhaseSpaceGeography\Portraits\Resonance.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\Runner.jpg</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\big.in</file>
+      <file>${PROJECT_ROOT}\element.in</file>
+      <file>${PROJECT_ROOT}\FunctionScript\DisableAll.m</file>
+      <file>${PROJECT_ROOT}\FunctionScript\FMI_compute.m</file>
+      <file>${PROJECT_ROOT}\FunctionScript\InitStructure.m</file>
+      <file>${PROJECT_ROOT}\FunctionScript\massOnOff.m</file>
+      <file>${PROJECT_ROOT}\FunctionScript\paralfor.m</file>
+      <file>${PROJECT_ROOT}\FunctionScript\ParalStructure.m</file>
+      <file>${PROJECT_ROOT}\FunctionScript\Rectify.m</file>
+      <file>${PROJECT_ROOT}\FunctionScript\SetInit.m</file>
+      <file>${PROJECT_ROOT}\Help\About_LAPLACE.mlapp</file>
+      <file>${PROJECT_ROOT}\NormalForm\Disable_All.m</file>
+      <file>${PROJECT_ROOT}\NormalForm\H2_H10.m</file>
+      <file>${PROJECT_ROOT}\NormalForm\LaLa.mlapp</file>
+      <file>${PROJECT_ROOT}\NormalForm\LaplaceCoeff.m</file>
+      <file>${PROJECT_ROOT}\NormalForm\ThreeBodyPlanar.mlapp</file>
+      <file>${PROJECT_ROOT}\NormalForm\ThreeBodyPlanarParameters.m</file>
+      <file>${PROJECT_ROOT}\param.in</file>
+      <file>${PROJECT_ROOT}\small.in</file>
+      <file>C:\PhaseSpaceGeography\Portraits\FFT.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\FMFT.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\Integrate.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\Laplace.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\onda.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\PhSpGeo.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\Saturn.jpg</file>
+      <file>C:\PhaseSpaceGeography\Portraits\Schiavo.jpg</file>
+      <file>C:\PhaseSpaceGeography\Util\daughter.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Degree_y.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\chompsep.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\concatpath.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\datenum2.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\deletewithsemaphores.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\displayerrorstruct.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\existfile.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\existfile.mexw64</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\findfiles.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\generateemptyfile.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\getfiledate.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\gethostname.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\getusername.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\mbdelete.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\mbtime.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\regexptokens.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\removefilesemaphore.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\setfilesemaphore.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\startmulticoremaster.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\startmulticoreslave.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\tempdir2.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\textwrap2.m</file>
+      <file>C:\PhaseSpaceGeography\Util\Multicore\translatedatestr.m</file>
+      <file>C:\PhaseSpaceGeography\Util\popupmessage.m</file>
+      <file>C:\PhaseSpaceGeography\Util\wavelet_transf.m</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\Compiled\for_testing" name="readme.txt" optional="true">C:\PhaseSpaceGeography\AppDesigner\LAPLACE\Master\Compiled\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\Compiled\for_testing" name="Laplace.exe" optional="false">C:\PhaseSpaceGeography\AppDesigner\LAPLACE\Master\Compiled\for_testing\Laplace.exe</file>
+      <file location="${PROJECT_ROOT}\Compiled\for_testing" name="splash.png" optional="false">C:\PhaseSpaceGeography\AppDesigner\LAPLACE\Master\Compiled\for_testing\splash.png</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2023b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

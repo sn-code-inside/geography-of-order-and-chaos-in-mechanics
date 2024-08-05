@@ -1,0 +1,16 @@
+)O+_06 element  (WARNING: Do not delete this line!!)
+number of input files = 1
+xv.out
+type of elements (central body, barycentric, Jacobi) = Cen
+minimum interval between outputs (days) = 3.6525
+express time in days or years = years
+express time relative to integration start time = yes
+a10.7 e10.8 i10.6 g10.6 n10.6 l12.8 m13e
+Mercury
+Venus
+Earth-Moon
+Mars
+Jupiter
+Saturn
+Uranus
+Neptune

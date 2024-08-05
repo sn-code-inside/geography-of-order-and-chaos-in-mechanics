@@ -1,0 +1,103 @@
+The LAPLACE program computes numerically the dynamics of a generic solar system, with a central massive star and
+at most 10 planets. The computing kernel can be chosen between HNBODY and MERCURY6.
+LAPLACE is organized in one window with four panels and some menus.
+
+************************** First Panel: Initial Conditions ******************************************************
+
+By default, mass values and initial conditions are adjusted on our solar system, with 8 planets plus Pluto and one
+asteroid, but the user can choose other values and even eliminate some planets, leaving blank the relative mass
+field. The units of measure are: the AU (radius of the Earth orbit), the year = 365.25 days, and the Sun's mass.
+All angles are expressed in degrees, with 1 deg = pi/180 rad.
+
+*************************** Second Panel: Integration ************************************************************
+
+Clicking on <Integrate> starts the numerical integration. With HNBODY the user
+can choose among three different methods: symplectic (default and recommended), Bulirsch--Stoer, and Runge--Kutta.
+The first method has a fixed integration step, chosen by the user along with the output step. The latter two
+instead have an adaptive step, which automatically ensures a relative accuracy = 10^{-12}, while the output step
+is still fixed and chosen by the user. The symplectic method is based on the algorithm of Wisdom-Holman, named
+Mixed Variable Symplectic (MVS), which alternates the advance due to the pure Keplerian dynamics with that due to
+the sole perturbation. MERCURY6 uses a different algorithm and can therefore serve as a useful comparison. It
+provides four methods: symplectic, Radau (i.e., Runge-K-Kutta implicit), Bulirsch--Stoer, and Hybrid (able to deal
+with close encounters between planets). 
+
+The integration step must be chosen taking into account the planets involved in the calculation. As a guide, we
+choose 0.01 if the terrestrial planets are present and 0.1--0.4 if only jovians are. When choosing a long Output
+Step, bear in mind that this shortens the duration of the integration time.
+
+Checking the box <Relativistic correction>, affects consequently the
+computation of the motion of the pericenter longitude.
+
+******************** Third Panel: Plot, Frequency Analysis, and Lyapunov} ****************************************
+
+When the numerical integration process is completed, various fields of the panel are enabled. In the two pop-up
+menus on the left the user can choose the parameters to plot and the relative planet. If the box 
+<User function> is checked, the user will be prompted to choose a personal script. Some files are
+provided as an example: AA_two_planets.m (see also below) and Xxx_Orbit.m to plot the 3D-orbit of the planets.
+Until the button <Clear append> is enabled, the results of subsequent computations are kept in memory
+and automatically added to the new graphical output.
+
+Clicking on <Plot> the chosen parameter of the relative planet is displayed.
+
+Clicking on <Check resonances> a new window appears. The button
+<Plot> --- whose icon shows two tuning forks --- displays the evolution of the
+angle that could be in resonance. This angle is the linear combination of those selected in the second column and
+relating to the planets in the third column, with integer coefficients in the first column: if the angle librates,
+we are in the resonance, otherwise it evolves monotonically.
+
+Clicking on <Lyapunov time> a second orbit is computed, called
+<shadow orbit>. All parameters remain unchanged except for the semi-major axis
+of the planet selected above, which is increased by 15 cm. Then the <true> and
+the <shadow orbit> are compared and six figures are displayed, giving you an
+idea of how quickly the two orbits move away from each other.
+
+The first figure shows the Lyapunov time. If the motion is chaotic, the distance between the two orbits
+will grow exponentially and the Lyapunov time will reach a finite
+value, otherwise it will tend to infinity. The critical choice is deciding how long the integration
+process should last.
+
+The second figure gives the physical distance in AU, while the third gives the difference between the two
+mean longitudes in degrees. The last figures shows the differences between the three action-type variables. As can
+be seen, the distance between the two orbits is due almost exclusively to the increase in the mean anomaly,
+which means that the orbits of the planets remain practically unchanged but are covered with different speeds.
+
+<Start demodulation> computes how the fundamental frequencies of the orbit
+change in the time and gives an idea of how regular it is.
+
+The right side of the panel is devoted to the frequency analysis of the same planet displayed in the second
+pop-up menu on the left, and it is very similar to the corresponding part in the first window of the KEPLER
+program. The three output frequencies are relative to: semimajor axis-mean longitude, eccentricity-longitude
+of perihelion and inclination-longitude of ascending node.
+
+ *********************** Fourth Panel: Frequency Modulation Indicator ********************************************
+
+When N planets are present, the action space is 3N-dimensional so that one must pick out a 2-dimensional
+section plane. The FMI will be computed taking all the actions fixed, with the exception of those spanning the
+grid on the section plane. The four pop-up menus of the panel allow one to choose the two planets and the
+corresponding two actions with their range, while all the other actions will keep the constant value displayed in
+the first panel <Initial conditions>. The two planets can be the same;
+consequently the two actions must be different. The <step number> fields fix
+the dimension of the rectangular grid on which the FMI is computed. The right side of the panel is equal to the
+corresponding part in the third/fourth window of the KEPLER program.
+
+************************************* Menu ***********************************************************************
+
+The menu of LAPLACE is very similar to that of KEPLER except for the <Normal form>, which displays two windows.
+
+In <Global planar secular 3-body> the user may perform the computations
+described in the homonymous section. To start using the program,
+choose the masses of the two planets, their semimajor axes and their eccentricities. This choice automatically
+determines the value of G_tot which cannot be modified directly but only via these parameters. Moving
+the slider in the panel <Unperturbed orbits> it is possible to
+cover the entire range of admitted values, leaving the G_tot value blocked and modifying the
+eccentricity values accordingly. This makes it possible to verify if the orbits of the two planets never get too
+close, as this violates the assumptions of the calculation. For safety, make sure that the analytical and
+numerical calculation results of the Action--Angles are in good agreement.
+
+<Lagrange--Laplace theory> performs the computations of the Lagrange--Laplace linear theory and displays
+the result. Clicking on <Compute> enable all the
+buttons, moreover two files reporting the eigenfrequencies of the eight planets appears in the Editor. Since the
+secular motion of the planets is calculated exponentiating these eigenfrequencies --- which are known exactly ---
+the use of <Fast Fourier Transform> and <FMFT> constitute a test to evaluate the accuracy of the two procedures.
+<Compute and plot eigenfrequencies> shows how the secular frequencies of the planets vary when the
+semimajor axis of one of them covers a predetermined interval.

@@ -1,0 +1,37 @@
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
+          % To view level lines and 3D-surfaces, type in a MATLAB session %
+          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                            % level lines
+load name.dat
+figure
+contour(name)
+
+                            % 3D-surface
+load name.dat
+figure
+surf(name)
+
+                      % 3D-surface plus level lines
+load name.dat
+figure
+surfc(name)
+
+                % 3D-surface, gray interpolated, no mesh lines
+load FMI_matrix.dat
+figure
+%figure%('WindowButtonDownFcn', 'click_LGG3')
+%figure%('WindowButtonDownFcn', 'click_LSD')
+colormap(jet)
+surf(FMI_matrix, 'FaceColor', 'interp', 'LineStyle', 'none');
+
+
+                     %%%%%%%%%%%%%%%%%
+                     % Concatenating %
+                     %%%%%%%%%%%%%%%%%
+
+load name1.dat
+load name2.dat
+load name3.dat
+Tot = [name1; name2; name3];
+surf(Tot, 'FaceColor', 'interp', 'LineStyle', 'none');

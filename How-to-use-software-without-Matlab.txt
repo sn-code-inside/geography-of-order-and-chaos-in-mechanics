@@ -1,0 +1,66 @@
+In case the reader does not have access to a MATLAB installation, we provide the compiled
+version of the five programs POINCARE, HAMILTON, LAGRANGE, KEPLER, and LAPLACE.
+
+Four of them are fully working as they are, the exception being KEPLER which requires the
+symbolic toolbox that cannot be compiled. We provide a workaround, delegating the task to
+an external program. The user simply needs to install PYTHON, a powerful, complete, and
+totally free program which contains a module for symbolic manipulation. We strongly
+recommend installing the PYTHON distribution called ANACONDA, downloading it from
+<https://www.anaconda.com/download/>. This distribution
+contains already everything you need. Once installed in Windows, make sure that PYTHON is
+in the PATH, after which it will work transparently, making KEPLER completely similar to
+the other four programs. The things are a bit more complicated in Linux, since it appears
+that MATLAB does not inherit the operating system's PATH. We were therefore forced to
+freeze the PYTHON working directory at compile time, consequently it is mandatory to
+install ANACONDA in "/user/bruno/anaconda3".
+
+In the interpreted case, the "Perturbative method" of KEPLER is in general the better
+choice for the numerical integration of an ODE. Conversely, for technical reasons
+(The point is that all functions are frozen in the compilation process and can
+not be updated dynamically. This fact forces us to use handles to anonymous functions
+instead to regular functions, thus preventing the adoption of some tricks that speed up
+the reading of the right-hand member of the ODE.) the "Non perturbative method" is more
+performing in the compiled case. Try and experiment.
+
+The compiled files for Windows10 or Windows11 are "Name.exe", where "Name" is one of
+the five program names, with only the initial letter capitalized. For LinuxMint21 the
+name is simply "Name", without extension. In order to run the compiled programs, the
+user must first install a sort of "scrambled" --- but free of charge --- MATLAB
+version, named "Runtime". To this end, from
+<https://mathworks.com /products/compiler/matlab-runtime.html> download the
+<Release (MATLAB Runtime Version\#) R2023b (23.2)>, unzip and install,
+following the instructions on the page.
+
+In Windows the five programs can be started with a double click on "Name.exe" or
+by typing it in a DOS window. In Linux type "run_Name.sh}. Useful informations
+about the progress of the computation and on how it is shared among the various cores are
+displayed in a terminal window. You can also create a link on the desktop, with an icon
+taken from the folder "Portraits", colored for the "Master" and grey for the
+"SlaveX". Take into account that opening a compiled program requires some minutes: be
+patient.
+
+It is mandatory to preserve the file structure for the compiled versions; in particular,
+do NOT move the executables. For the rest, follow the same instructions already
+given for the interpreted version. We stress that also with the compiled version the user
+can parallelize the work, sharing the computation among several cores.
+
+Lastly, if you can temporarily access a MATLAB installation, the files "Compile_Win.prj"
+and "Compile_Linux.prj" allow you to compile again the relevant and
+eventually modified program. Warning: to prevent confusion, the modified programs
+cannot be redistributed publicly. To compile:
+- Open Matlab in PhaseSpaceGeography
+- Add to path by right-clicking on: "AddedODEsolver" with subfolders,
+  "Util"  with subfolders, "Portraits", and  "POINCARE/Master"  with subfolders
+- Go to "AppDesigner/POINCARE/Master".
+- If exists open "Compile_Win.prj" or "Compile_Linux.prj", if not, create
+  it with: "Apps/Application compiler".
+- Add "Poincare_source.mlapp" in "Add main file": automatic popup  after a few seconds
+  (of some) of the required files. In case, manually add the missing ones.
+- In Windows uncheck: "Do not display the Windows Command ...".
+- In case complete the rest of the window.
+- Save as "Compile_Win.prj" or "Compile_Linux.prj".
+- In case change the folders in "Settings" and save again.
+- Click on "Package": the folder "Compiled" is created; it contains some folders
+  and files, in particular the executables "Poincare.exe" (for Windows)
+  or "Poincare" and "run_Poincare.sh" (for Linux): copy
+  these executable(s) in "Master" and in all the "SlaveX".

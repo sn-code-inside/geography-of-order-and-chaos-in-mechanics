@@ -1,0 +1,5 @@
+gcc -c nrutil.c
+gcc -c fmft.c
+gcc -o main_fmft main_fmft.c fmft.o nrutil.o -lm
+del fmft.o
+del nrutil.o

@@ -1,0 +1,304 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="/home/bruno/PhaseSpaceGeography/AppDesigner/KEPLER/Master/Compile_Linux.prj" location="/home/bruno/PhaseSpaceGeography/AppDesigner/KEPLER/Master" name="Compile_Linux" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>Kepler</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>2.0</param.version>
+    <param.authnamewatermark>Bruno Cordani</param.authnamewatermark>
+    <param.email>bruno.cordani@unimi.it</param.email>
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.guid />
+    <param.installpath.string>/Kepler/</param.installpath.string>
+    <param.installpath.combo>option.installpath.user</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes>In the following directions, replace MR/R2023b by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
+
+(1) Set the environment variable XAPPLRESDIR to this value:
+
+MR/R2023b/X11/app-defaults
+
+
+(2) If the environment variable LD_LIBRARY_PATH is undefined, set it to the following:
+
+MR/R2023b/runtime/glnxa64:MR/R2023b/bin/glnxa64:MR/R2023b/sys/os/glnxa64:MR/R2023b/sys/opengl/lib/glnxa64
+
+If it is defined, set it to the following:
+
+${LD_LIBRARY_PATH}:MR/R2023b/runtime/glnxa64:MR/R2023b/bin/glnxa64:MR/R2023b/sys/os/glnxa64:MR/R2023b/sys/opengl/lib/glnxa64</param.target.install.notes>
+    <param.intermediate>${PROJECT_ROOT}/Compile_Linux/for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}/Compile_Linux/for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}/Compile_Linux/for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}/Compile_Linux</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text>Syntax 
+	  -? 
+	 
+ Input Arguments 
+	 -?  print help on how to use the application 
+	 input arguments</param.help.text>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/Kepler_source.mlapp</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>/home/bruno/PhaseSpaceGeography/AddedODEsolver/BulirschStoer/BulirschStoer.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/AddedODEsolver/Rk/RungeKutta4.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/AddedODEsolver/Rk/RungeKutta5.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/AddedODEsolver/dop853/dop853.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/AddedODEsolver/dop853/rdpget.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Anisotropic.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Euler1.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Euler2.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Euler3.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Hill.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Oscillator.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/QZ1.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/QZ2.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/QZ3.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Satellite.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Stark1.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Stark2.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Stark3.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Zeeman1.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Zeeman2.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Zeeman3.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/Zero.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/overR2.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/overR3.m</file>
+      <file>${PROJECT_ROOT}/H_perturbation/p_2.m</file>
+      <file>${PROJECT_ROOT}/Help/Help.txt</file>
+      <file>${PROJECT_ROOT}/Plot/AA_Delaunay.m</file>
+      <file>${PROJECT_ROOT}/Plot/AA_Delaunayprime.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AADelaunayRotated_1.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AADelaunayRotated_2.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AADelaunayRotated_3.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AADelaunayRotated_G_omega.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AAPauliRotated_1.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AAPauliRotated_2.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AAPauliRotated_3.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/UserActionAngle/AAPauliRotated_R3_phiR.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Orbita.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/PhSpGeo.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Runner.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Schiavo.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/existfile.mexw64</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/getfiledate.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/gethostname.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/getusername.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/mbload.m</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/CoordinateChange/Cartesian2Keplerian.m</file>
+      <file>${PROJECT_ROOT}/CoordinateChange/Cartesian2SD.m</file>
+      <file>${PROJECT_ROOT}/CoordinateChange/Keplerian2Cartesian.m</file>
+      <file>${PROJECT_ROOT}/CoordinateChange/SD2Cartesian.m</file>
+      <file>${PROJECT_ROOT}/CoordinateChange/SD2SpDp.m</file>
+      <file>${PROJECT_ROOT}/CoordinateChange/SoDo2uRvR.m</file>
+      <file>${PROJECT_ROOT}/CoordinateChange/qp2SD.m</file>
+      <file>${PROJECT_ROOT}/CoordinateChange/qp2uv.m</file>
+      <file>${PROJECT_ROOT}/Def/Hp.m</file>
+      <file>${PROJECT_ROOT}/Def/Kp.m</file>
+      <file>${PROJECT_ROOT}/Def/norma.m</file>
+      <file>${PROJECT_ROOT}/Def/scalarp.m</file>
+      <file>${PROJECT_ROOT}/Def/uv2xy.m</file>
+      <file>${PROJECT_ROOT}/Def/vectorp.m</file>
+      <file>${PROJECT_ROOT}/Def/xy2uv.m</file>
+      <file>${PROJECT_ROOT}/Def/xy2zw.m</file>
+      <file>${PROJECT_ROOT}/Def/zw2xy.m</file>
+      <file>${PROJECT_ROOT}/Do/Calculate_Trajectories.m</file>
+      <file>${PROJECT_ROOT}/Do/Calculate_TrajectoriesNonPert.m</file>
+      <file>${PROJECT_ROOT}/Do/Disable_General.m</file>
+      <file>${PROJECT_ROOT}/Do/Integrate.m</file>
+      <file>${PROJECT_ROOT}/Do/NormalizeD.m</file>
+      <file>${PROJECT_ROOT}/Do/NormalizeS.m</file>
+      <file>${PROJECT_ROOT}/Do/Symbolic.m</file>
+      <file>${PROJECT_ROOT}/Do/SymbolicNonPert.m</file>
+      <file>${PROJECT_ROOT}/Do/Write2file.m</file>
+      <file>${PROJECT_ROOT}/Do/Write2fileNonPert.m</file>
+      <file>${PROJECT_ROOT}/FFT/DelaunayforFFT.m</file>
+      <file>${PROJECT_ROOT}/FFT/DelaunayprimeforFFT.m</file>
+      <file>${PROJECT_ROOT}/FFT/PauliforFFT.m</file>
+      <file>${PROJECT_ROOT}/FFT/PauliprimeforFFT.m</file>
+      <file>${PROJECT_ROOT}/FFT/UserforFFT.m</file>
+      <file>${PROJECT_ROOT}/FMFT/DelaunayforFMFT.m</file>
+      <file>${PROJECT_ROOT}/FMFT/DelaunayprimeforFMFT.m</file>
+      <file>${PROJECT_ROOT}/FMFT/DelaunayprimeforFMFT_noRes.m</file>
+      <file>${PROJECT_ROOT}/FMFT/Long_Freq_Analysis.m</file>
+      <file>${PROJECT_ROOT}/FMFT/PauliforFMFT.m</file>
+      <file>${PROJECT_ROOT}/FMFT/PauliprimeforFMFT.m</file>
+      <file>${PROJECT_ROOT}/FMFT/PauliprimeforFMFT_noRes.m</file>
+      <file>${PROJECT_ROOT}/FMFT/UserforFMFT.m</file>
+      <file>${PROJECT_ROOT}/FMFT/WriteInputLGG3.m</file>
+      <file>${PROJECT_ROOT}/FMFT/WriteInputLSD.m</file>
+      <file>${PROJECT_ROOT}/Help/About_KEPLER.mlapp</file>
+      <file>${PROJECT_ROOT}/Init/InitStructure.m</file>
+      <file>${PROJECT_ROOT}/Init/ParalStructure.m</file>
+      <file>${PROJECT_ROOT}/Init/SetInit.m</file>
+      <file>${PROJECT_ROOT}/NormalForm/Bgray.jpg</file>
+      <file>${PROJECT_ROOT}/NormalForm/Cr3b.mlapp</file>
+      <file>${PROJECT_ROOT}/NormalForm/Cr3bstruct.m</file>
+      <file>${PROJECT_ROOT}/NormalForm/E1gray.jpg</file>
+      <file>${PROJECT_ROOT}/NormalForm/E3gray.jpg</file>
+      <file>${PROJECT_ROOT}/NormalForm/SQZ.mlapp</file>
+      <file>${PROJECT_ROOT}/NormalForm/SQZ_Parameter_calc.m</file>
+      <file>${PROJECT_ROOT}/NormalForm/SQZstruct.m</file>
+      <file>${PROJECT_ROOT}/NormalForm/Sat.mlapp</file>
+      <file>${PROJECT_ROOT}/PhaseSpaceMap/FreqMapLG.m</file>
+      <file>${PROJECT_ROOT}/PhaseSpaceMap/PoincareMapG.m</file>
+      <file>${PROJECT_ROOT}/PhaseSpaceMap/RotatedFreqMapLGG3.m</file>
+      <file>${PROJECT_ROOT}/PhaseSpaceMap/RotatedFreqMapLSD.m</file>
+      <file>${PROJECT_ROOT}/PhaseSpaceMap/parfor_LGG3.m</file>
+      <file>${PROJECT_ROOT}/PhaseSpaceMap/parfor_LSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/AA_Pauli.m</file>
+      <file>${PROJECT_ROOT}/Plot/AA_Pauliprime.m</file>
+      <file>${PROJECT_ROOT}/Plot/DiffSecD_LSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/DiffSecG3_LGG3.m</file>
+      <file>${PROJECT_ROOT}/Plot/DiffSecG_LGG3.m</file>
+      <file>${PROJECT_ROOT}/Plot/DiffSecS_LSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/Diff_LGG3.m</file>
+      <file>${PROJECT_ROOT}/Plot/Diff_LSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/Errors.m</file>
+      <file>${PROJECT_ROOT}/Plot/FreqSecD_LSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/FreqSecG3_LGG3.m</file>
+      <file>${PROJECT_ROOT}/Plot/FreqSecG_LGG3.m</file>
+      <file>${PROJECT_ROOT}/Plot/FreqSecS_LSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/Freq_LGG3.m</file>
+      <file>${PROJECT_ROOT}/Plot/Freq_LSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/Freq_levelLGG3.m</file>
+      <file>${PROJECT_ROOT}/Plot/Freq_levelLSD.m</file>
+      <file>${PROJECT_ROOT}/Plot/Time.m</file>
+      <file>${PROJECT_ROOT}/Plot/Trajectories.m</file>
+      <file>${PROJECT_ROOT}/Plot/t_Kepler_Parameters.m</file>
+      <file>${PROJECT_ROOT}/Plot/tau_Kepler_Parameters.m</file>
+      <file>${PROJECT_ROOT}/Plot/tau_SD.m</file>
+      <file>${PROJECT_ROOT}/Plot/tau_SDprime.m</file>
+      <file>${PROJECT_ROOT}/StandardMethod/Plot/ErrorHstand.m</file>
+      <file>${PROJECT_ROOT}/StandardMethod/Plot/Stand_Kepler_Parameters.m</file>
+      <file>${PROJECT_ROOT}/StandardMethod/Plot/Stand_Trajectories.m</file>
+      <file>${PROJECT_ROOT}/StandardMethod/Stand_Calculate_Trajectories.m</file>
+      <file>${PROJECT_ROOT}/StandardMethod/Stand_Integrate.m</file>
+      <file>${PROJECT_ROOT}/UserFunctions/phiR.m</file>
+      <file>${PROJECT_ROOT}/UserSaved/KS.jpg</file>
+      <file>${PROJECT_ROOT}/Wavelet/DelaunayforWT.m</file>
+      <file>${PROJECT_ROOT}/Wavelet/DelaunayprimeforWT.m</file>
+      <file>${PROJECT_ROOT}/Wavelet/PauliforWT.m</file>
+      <file>${PROJECT_ROOT}/Wavelet/PauliprimeforWT.m</file>
+      <file>${PROJECT_ROOT}/Wavelet/UserforWT.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/FFT.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/FMFT.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Integrate.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Kepler.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Tori.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/onda.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Degree_x.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Degree_y.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/chompsep.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/concatpath.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/datenum2.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/deletewithsemaphores.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/displayerrorstruct.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/existfile.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/findfiles.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/generateemptyfile.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/mbdelete.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/mbtime.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/regexptokens.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/removefilesemaphore.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/setfilesemaphore.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/startmulticoremaster.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/startmulticoreslave.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/tempdir2.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/textwrap2.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/translatedatestr.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/daughter.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/odebar.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/popupmessage.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/wavelet_transf.m</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="run_Kepler.sh" optional="false">/home/bruno/PhaseSpaceGeography/AppDesigner/KEPLER/Master/Compile_Linux/for_testing/run_Kepler.sh</file>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="Kepler" optional="false">/home/bruno/PhaseSpaceGeography/AppDesigner/KEPLER/Master/Compile_Linux/for_testing/Kepler</file>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="splash.png" optional="false">/home/bruno/PhaseSpaceGeography/AppDesigner/KEPLER/Master/Compile_Linux/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="readme.txt" optional="true">/home/bruno/PhaseSpaceGeography/AppDesigner/KEPLER/Master/Compile_Linux/for_testing/readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/home/bruno/MATLAB/R2023b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>5.15.0-75-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

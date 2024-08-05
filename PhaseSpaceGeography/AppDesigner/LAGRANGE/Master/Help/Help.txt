@@ -1,0 +1,42 @@
+******************* The LAGRANGE program *********************************************
+The Lagrange points are relative equilibrium points of the circular restricted 3-body
+problem, a special case of the general 3-body problem: two bodies move in circular orbits
+at unitary distance about the common center of mass, according to the laws of the 2-body
+dynamics, while a third body of negligible mass moves in their gravitational field. There
+are five equilibrium points in the rotating reference system, since the centrtifugal
+force can balance the gravity. Three of them are placed on the x axis, which
+encompasses the two rotating masses, and are named L1,L2,L3: they are always unstable.
+The other two are L4 and L5 and along with the two rotating masses they form two equilater
+triangles, the third vertex having, respectively, positive and negative y coordinate.
+The LAGRANGE program investigates numerically the dynamics and with the FMI tool
+finds the distribution of the resonances in the neighbourhood of L4.
+
+In the panel "Lagrangian Equilibrium Points" the user can choose one of the five
+equilibrium points.
+
+In the panel "Single orbit analysis" one can investigate numerically the dynamics of a
+point, visualizing the evolution of the physical coordinates and, for L4,
+of the action-angle variables. The initial conditions are the distance
+from the equilibrium point and the velocity. Starting
+from a point very close to L4, as expected the actions are nearly constant and the angles
+grow linearly in the time: the hamiltonian system behaves in practice as integrable,
+the perturbative parameter being the distance from L4.
+
+In the third panel "ODE solver" the user can choose the method for the numerical integration
+with the relative options.
+
+In the "Frequency Modulation Indicator" panel you can choose the parameter values in
+order to analyze the selected Hamiltonian. Clearly, increasing the step number you will
+get a better resolution in the final plot. For a description of the FMI tool, see
+subsection 5.3.4 of the book.
+In order to obtain good results, the computations require very long times, which can
+be shortened if the computer is a multicore machine. Indeed, LAGRANGE is able to
+parallelize the computations in the following way. If you possess an n-core machine,
+in an empty folder "Lagrange" create a subfolder "Master" and n-1 subfolders Slave1,
+Slave2, . . . , then copy the whole program LAGRANGE identically in every folder.
+Start MATLAB then LAGRANGE from the Master folder, set the parameters and click on
+"Save setting now". Without closing, start a new instance of MATLAB, then LAGRANGE
+from a folder SlaveX: you will notice that the new button "Start Slave" appears.
+Click on this button and LAGRANGE will wait for the start of the master.
+Redo for every slave, lastly go back to the master and click on "Calculate...".
+The whole work will be automatically shared among the n cores.

@@ -1,0 +1,168 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="/home/bruno/PhaseSpaceGeography/AppDesigner/POINCARE/Master/Compile_Linux.prj" location="/home/bruno/PhaseSpaceGeography/AppDesigner/POINCARE/Master" name="Compile_Linux" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>Poincare</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>2.0</param.version>
+    <param.authnamewatermark>Bruno Cordani</param.authnamewatermark>
+    <param.email>bruno.cordani@unimi.it</param.email>
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.guid />
+    <param.installpath.string>/Poincare/</param.installpath.string>
+    <param.installpath.combo>option.installpath.user</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes>In the following directions, replace MR/R2023b by the directory on the target machine where MATLAB is installed, or MR by the directory where the MATLAB Runtime is installed.
+
+(1) Set the environment variable XAPPLRESDIR to this value:
+
+MR/R2023b/X11/app-defaults
+
+
+(2) If the environment variable LD_LIBRARY_PATH is undefined, set it to the following:
+
+MR/R2023b/runtime/glnxa64:MR/R2023b/bin/glnxa64:MR/R2023b/sys/os/glnxa64:MR/R2023b/sys/opengl/lib/glnxa64
+
+If it is defined, set it to the following:
+
+${LD_LIBRARY_PATH}:MR/R2023b/runtime/glnxa64:MR/R2023b/bin/glnxa64:MR/R2023b/sys/os/glnxa64:MR/R2023b/sys/opengl/lib/glnxa64</param.target.install.notes>
+    <param.intermediate>${PROJECT_ROOT}/Compile_Linux/for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}/Compile_Linux/for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}/Compile_Linux/for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}/Compile_Linux</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>true</param.create.log>
+    <param.log.file>Report.log</param.log.file>
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text>Syntax 
+	  -? 
+	 
+ Input Arguments 
+	 -?  print help on how to use the application 
+	 input arguments</param.help.text>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/Poincare_source.mlapp</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>/home/bruno/PhaseSpaceGeography/AddedODEsolver/bin/main_fmft</file>
+      <file>${PROJECT_ROOT}/Function/APLE.m</file>
+      <file>${PROJECT_ROOT}/Function/FGL.m</file>
+      <file>${PROJECT_ROOT}/Function/FGLsteep.m</file>
+      <file>${PROJECT_ROOT}/Function/ROT.m</file>
+      <file>${PROJECT_ROOT}/Function/User.m</file>
+      <file>${PROJECT_ROOT}/Help/Help.txt</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Runner.jpg</file>
+    </fileset.resources>
+    <fileset.package />
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/Function/InitStructure.m</file>
+      <file>${PROJECT_ROOT}/Function/paralfor.m</file>
+      <file>${PROJECT_ROOT}/Help/About_POINCARE.mlapp</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/LFA2.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/PhSpGeo.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Poincare2.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Portraits/Schiavo.jpg</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/chompsep.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/concatpath.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/datenum2.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/deletewithsemaphores.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/displayerrorstruct.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/existfile.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/findfiles.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/generateemptyfile.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/getfiledate.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/gethostname.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/getusername.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/mbdelete.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/mbtime.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/regexptokens.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/removefilesemaphore.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/setfilesemaphore.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/startmulticoremaster.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/startmulticoreslave.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/tempdir2.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/textwrap2.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/Multicore/translatedatestr.m</file>
+      <file>/home/bruno/PhaseSpaceGeography/Util/popupmessage.m</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="run_Poincare.sh" optional="false">/home/bruno/PhaseSpaceGeography/AppDesigner/POINCARE/Master/Compile_Linux/for_testing/run_Poincare.sh</file>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="readme.txt" optional="true">/home/bruno/PhaseSpaceGeography/AppDesigner/POINCARE/Master/Compile_Linux/for_testing/readme.txt</file>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="splash.png" optional="false">/home/bruno/PhaseSpaceGeography/AppDesigner/POINCARE/Master/Compile_Linux/for_testing/splash.png</file>
+      <file location="${PROJECT_ROOT}/Compile_Linux/for_testing" name="Poincare" optional="false">/home/bruno/PhaseSpaceGeography/AppDesigner/POINCARE/Master/Compile_Linux/for_testing/Poincare</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/home/bruno/MATLAB/R2023b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>5.15.0-75-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

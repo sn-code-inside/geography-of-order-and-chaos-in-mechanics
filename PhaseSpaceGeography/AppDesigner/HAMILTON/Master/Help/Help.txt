@@ -1,0 +1,37 @@
+*****************************************************************************************
+******************* The HAMILTON program ************************************************
+The HAMILTON program analyzes a quasi-integrable Hamiltonian system with the aid
+of the Frequency Modulation Indicator in order to find the distribution of the resonances
+in the Action space.
+
+************************* The Hamiltonian panel ********************************************
+In the panel "Hamiltonian" you can choose the Hamiltonian, the value of the perturbing parameters
+and the integration interval. At the moment three different Hamiltonians are supplied: FGL,
+FGLmod, and ERSD: see the respective file FunctionScript\*.m. The Hamiltonian User can be
+overwritten at will opening the file Function\User.m.
+
+************************* The ODE solver panel *************************************
+In the panel "ODE solver" you can choose the ODE solver, the tolerances -- i.e. the
+precision -- and the output step.
+
+*********************** The Time-Frequency Analysis panel **************************
+In the panel "Time-Frequency Analysis" you can choose the initial value of the actions
+I1, I2, I3, then find the frequency values with the FFT, FMFT and WT method:
+see Section 5.3 of the book.
+
+**************** The Frequency Modulation Indicator panel **************************
+In the "Frequency Modulation Indicator" panel you can choose the parameter values in
+order to analyze the selected map. Clearly, increasing the step number you will get
+a better resolution in the final plot. For a description of the FMI tool, see
+subsection 5.3.4 of the book.
+In order to obtain good results, the computations require very long times, which can
+be shortened if the computer is a multicore machine. Indeed, HAMILTON is able to
+parallelize the computations in the following way. If you possess an n-core machine,
+in an empty folder "Hamilton" create a subfolder "Master" and n-1 subfolders Slave1,
+Slave2, . . . , then copy the whole program HAMILTON identically in every folder.
+Start MATLAB then HAMILTON from the Master folder, set the parameters and click on
+"Save setting now". Without closing, start a new instance of MATLAB, then HAMILTON
+from a folder SlaveX: you will notice that the new button "Start Slave" appears.
+Click on this button and HAMILTON will wait for the start of the master.
+Redo for every slave, lastly go back to the master and click on "Calculate and plot".
+The whole work will be automatically shared among the n cores.

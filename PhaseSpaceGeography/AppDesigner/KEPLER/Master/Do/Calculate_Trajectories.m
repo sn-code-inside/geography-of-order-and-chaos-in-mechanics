@@ -1,0 +1,29 @@
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%               Calculate Trajectories (perturbative)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+step_total = size(W,1);
+step_i = floor(tau_i/tau_total*step_total)+1;
+step_f = floor(tau_f/tau_total*step_total);
+tau = tau_c(step_i:step_f);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Ko = (1/2*sqrt(sum(W(step_i:step_f,1:4)'.^2))...
+    + 1/2*sqrt(sum(W(step_i:step_f,5:8)'.^2)))';
+%
+tau_floor = tau - floor(tau);
+%
+x_vec = W(step_i:step_f,1:3).*cos([2*pi*tau_floor 2*pi*tau_floor 2*pi*tau_floor])...
+    + W(step_i:step_f,5:7).*sin([2*pi*tau_floor 2*pi*tau_floor 2*pi*tau_floor])...
+    -(W(step_i:step_f,5:7).*[W(step_i:step_f,4) W(step_i:step_f,4) W(step_i:step_f,4)]...
+    - W(step_i:step_f,1:3).*[W(step_i:step_f,8) W(step_i:step_f,8) W(step_i:step_f,8)])...
+    ./[Ko Ko Ko];
+%
+y_vec = (-W(step_i:step_f,1:3).*sin([2*pi*tau_floor 2*pi*tau_floor 2*pi*tau_floor])...
+    + W(step_i:step_f,5:7).*cos([2*pi*tau_floor 2*pi*tau_floor 2*pi*tau_floor]))...
+    ./[Ko-W(step_i:step_f,4).*sin(2*pi*tau_floor)+W(step_i:step_f,8).*cos(2*pi*tau_floor),...
+       Ko-W(step_i:step_f,4).*sin(2*pi*tau_floor)+W(step_i:step_f,8).*cos(2*pi*tau_floor),...
+       Ko-W(step_i:step_f,4).*sin(2*pi*tau_floor)+W(step_i:step_f,8).*cos(2*pi*tau_floor)];
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+q_vec = (lambda^2)*x_vec;   
+p_vec = (1/lambda)*y_vec;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
