@@ -23,7 +23,7 @@ Bear in mind that, in the usually very demanding computations of the FMI, the
 user can exploit the power of a multicore machine. Indeed KEPLER for example, along with the other four
 supplied programs, is able to parallelize the computations in the following
 way. If you possess an n-core machine, in the folder "Kepler" and
-beside the subfolder "Master" create n-1 subfolders \named Slave1,
+beside the subfolder "Master" create n-1 subfolders, named Slave1,
 Slave2, et cetera, then copy the whole content of "Master" identically in
 every folder: the n folders must differ only in the name. Start MATLAB then
 KEPLER from the "Master" folder, set the parameters, and click on "File/Save setting now".
