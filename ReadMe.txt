@@ -4,7 +4,7 @@
                      	 ***********************************************     
 
 Let us examine the attached software and see how to use files and programs. Go to the site
-         https://github.com/sn-code-inside/Geometry-of-Order-and-Chaos-in-Mechanics
+         https://github.com/sn-code-inside/Geography-of-Order-and-Chaos-in-Mechanics
 where you will find four folders.			   
 	       
 **************************** PhaseSpaceGeography ***************************************************
@@ -83,7 +83,7 @@ and may serve as a base to the reader for further explorations. In particular,
 one can record the values of the coordinates of some points in the picture and use
 them for the computation of the relative orbit, to which a frequency analysis can be applied.
 
-*********************************** Euler.mw ***********************************************************
+*********************************** Euler ***********************************************************
 
 The EULER program, written in MATLAB and MAPLE language, calculates
 analytically, thus exactly, the motion of a point under the
