@@ -1,3 +1,8 @@
+		
+                     	 ****************************************************     
+                     	 *       How to use the software without MATLAB     *     
+                     	 ****************************************************     
+
 In case the reader does not have access to a MATLAB installation, we provide the compiled
 version of the five programs POINCARE, HAMILTON, LAGRANGE, KEPLER, and LAPLACE.
 
