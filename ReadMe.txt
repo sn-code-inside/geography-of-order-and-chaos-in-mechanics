@@ -11,7 +11,9 @@ Here is the software that accompanies the book of Bruno Cordani
 The software uses some numerical tools, such as Poincaré section, FFT,
 Wavelets, and Frequency Modulation Indicator (FMI), which detects the
 distribution of the resonances among the fundamental frequencies.
-The book describes five programs
+The book describes five programs whose code is written in the MATLAB language.
+All programs have a graphical user interface and can be used even by those
+who do not know MATLAB.
 - POINCARE program analyzes symplectic maps with the aid of the FMI.
 - HAMILTON program analyzes Hamiltonian systems with the FMI.
 - LAGRANGE program concerns the Lagrange points in the three-body problem.
